@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {Header} from "./Components/Header";
+import {AddNumber} from "./Components/AddNumber";
+import {Reset} from "./Components/Reset";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const maxValue = 5
+    const startValue = 0
+
+    let [num, setNum] = useState<number>(startValue)
+
+    const addClickHandler = () => {
+        if(num < maxValue) {
+            setNum(num+1)
+        }
+    }
+
+    const resetClickHandler = () => {
+      setNum(startValue)
+    }
+    
+    
+    return (
+        <div className="App">
+            <Header num={num}/>
+            <AddNumber name={"Add"} callBack={addClickHandler}/>
+            <Reset name={"reset"} callBack={resetClickHandler}/>
+        </div>
+    );
 }
 
 export default App;
