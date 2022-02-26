@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './App.css';
+import s from "./App.module.css";
 import {Header} from "./Components/Header";
 import {AddNumber} from "./Components/AddNumber";
 import {Reset} from "./Components/Reset";
@@ -13,21 +13,27 @@ function App() {
     let [num, setNum] = useState<number>(startValue)
 
     const addClickHandler = () => {
-        if(num < maxValue) {
-            setNum(num+1)
+        if (num < maxValue) {
+            setNum(num + 1)
         }
     }
 
     const resetClickHandler = () => {
-      setNum(startValue)
+        setNum(startValue)
     }
-    
-    
+
     return (
-        <div className="App">
-            <Header num={num}/>
-            <AddNumber name={"Add"} callBack={addClickHandler}/>
-            <Reset name={"reset"} callBack={resetClickHandler}/>
+
+        <div className={s.App}>
+            <div className={s.headerBody}>
+                <div className={num == 5 ? s.buttonError : s.button}>
+                    <Header num={num}/>
+                </div>
+                <div className={s.counterFunction}>
+                    <AddNumber name={"Add"} callBack={addClickHandler}/>
+                    <Reset name={"reset"} callBack={resetClickHandler} callBackDisable={num == 5 ? false : true}/>
+                </div>
+            </div>
         </div>
     );
 }
