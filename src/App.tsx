@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import s from "./App.module.css";
 import {Header} from "./Components/Header";
-import {AddNumber} from "./Components/AddNumber";
-import {Reset} from "./Components/Reset";
+import {MultiButton} from "./Components/MultiButton";
 
 
 function App() {
@@ -22,6 +21,8 @@ function App() {
         setNum(startValue)
     }
 
+
+
     return (
 
         <div className={s.App}>
@@ -30,8 +31,8 @@ function App() {
                     <Header num={num}/>
                 </div>
                 <div className={s.counterFunction}>
-                    <AddNumber name={"Add"} callBack={addClickHandler}/>
-                    <Reset name={"reset"} callBack={resetClickHandler} callBackDisable={num == 5 ? false : true}/>
+                    <MultiButton name={"Add"} callBack={addClickHandler} callBackDisable = {num === 5 }/>
+                    <MultiButton name={"reset"} callBack={resetClickHandler} callBackDisable={num === 5 ? false : true}/>
                 </div>
             </div>
         </div>
