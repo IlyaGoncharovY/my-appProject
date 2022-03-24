@@ -3,7 +3,7 @@ import React from 'react';
 type MultiButtonPropsType = {
     name: string
     callBack: () => void
-    callBackDisable: boolean
+    callBackDisable?: boolean
 }
 
 export const MultiButton = (props: MultiButtonPropsType) => {
@@ -13,7 +13,11 @@ export const MultiButton = (props: MultiButtonPropsType) => {
     }
     return (
         <div>
-            <button onClick={addClickHandler} disabled={props.callBackDisable}>{props.name}</button>
+            <button
+                onClick={addClickHandler}
+                disabled={props.callBackDisable}
+            >
+                {props.name}</button>
         </div>
     );
 };
