@@ -18,12 +18,6 @@ function App() {
 
 
     useEffect(() => {
-        localStorage.setItem("counterNum", JSON.stringify(num))
-        localStorage.setItem("counterValue", JSON.stringify(valueStart))
-        localStorage.setItem("counterMaxValue", JSON.stringify(valueMax))
-    }, [num, valueStart, valueMax])
-
-    useEffect(() => {
 
         let numCounter = localStorage.getItem("counterNum")
         let valueStartCounter = localStorage.getItem("counterValue")
@@ -40,13 +34,11 @@ function App() {
         }
     }, [])
 
-    /*    useEffect(() => {
-            let namAsString = localStorage.getItem("counterKey")
-            if (namAsString) {
-                let newNum = JSON.parse(namAsString)
-                setValueStart(newNum)
-            }
-        }, [])*/
+    useEffect(() => {
+        localStorage.setItem("counterNum", JSON.stringify(num))
+        localStorage.setItem("counterValue", JSON.stringify(valueStart))
+        localStorage.setItem("counterMaxValue", JSON.stringify(valueMax))
+    }, [num, valueStart, valueMax])
 
     const addClickHandler = () => {
         if (valueStart < valueMax) {
@@ -73,7 +65,9 @@ function App() {
     }
 
     const onClickButtonHandler = () => {
-        setNum(valueStart)
+       if (valueMax >= valueStart) {
+           setNum(valueStart)
+       } num = 404
     }
 
     return (
