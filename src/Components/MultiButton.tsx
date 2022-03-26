@@ -1,4 +1,6 @@
 import React from 'react';
+import {Button} from "@mui/material";
+
 
 type MultiButtonPropsType = {
     name: string
@@ -13,11 +15,8 @@ export const MultiButton = (props: MultiButtonPropsType) => {
     }
     return (
         <div>
-            <button
-                onClick={addClickHandler}
-                disabled={props.callBackDisable}
-            >
-                {props.name}</button>
+            <Button variant={"contained"} color={"success"} onClick={addClickHandler} disabled={props.callBackDisable}>
+                {props.name}</Button>
         </div>
     );
 };

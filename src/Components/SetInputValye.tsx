@@ -16,7 +16,6 @@ export const SetInputValue = (props: SetInputValuePropsType) => {
             <input type={"number"}
                    value={props.value}
                    onChange={props.onChange}
-
             />
         </div>
     );

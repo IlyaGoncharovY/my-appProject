@@ -61,19 +61,16 @@ function App() {
 
     const onChangeHandlerStart = (event: ChangeEvent<HTMLInputElement>) => {
         setValueStart(Number(event.currentTarget.value))
-        //setNum(Number(event.currentTarget.value))
     }
 
-    const onClickButtonHandler = () => {
-       if (valueMax >= valueStart) {
-           setNum(valueStart)
-       } num = 404
+    const onClickSetButtonHandler = () => {
+        valueMax > valueStart ? setNum(valueStart) : setNum(valueMax)
     }
-
     return (
 
         <div className={s.App}>
             <div className={s.headerBody}>
+
                 <div className={num === valueMax ? s.buttonError : s.button}>
 
                     <Header num={num}/>
@@ -81,7 +78,8 @@ function App() {
                 </div>
                 <div className={s.counterFunction}>
                     <MultiButton name={"Add"} callBack={addClickHandler} callBackDisable={callBackDisableAdd}/>
-                    <MultiButton name={"reset"} callBack={resetClickHandler} callBackDisable={callBackDisableReset}/>
+                    <MultiButton name={"reset"} callBack={resetClickHandler}
+                                 callBackDisable={callBackDisableReset}/>
                 </div>
             </div>
 
@@ -92,10 +90,12 @@ function App() {
                 <div>
                     <SetInputValue name={"start value"} value={valueStart} onChange={onChangeHandlerStart}/>
                 </div>
-                <MultiButton name={"set"} callBack={onClickButtonHandler}/>
+                <MultiButton name={"set"} callBack={onClickSetButtonHandler}/>
             </div>
         </div>
-    );
+
+    )
+        ;
 }
 
 export default App;
