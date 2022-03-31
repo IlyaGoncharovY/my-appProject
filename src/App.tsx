@@ -52,7 +52,7 @@ function App() {
         setValueStart(startValue)
     }
 
-    const callBackDisableAdd = num === valueMax
+    const callBackDisableAdd = num === valueMax || valueMax <= valueStart
     const callBackDisableReset = num !== valueMax
 
     const onChangeHandlerMax = (event: ChangeEvent<HTMLInputElement>) => {
@@ -66,15 +66,18 @@ function App() {
     const onClickSetButtonHandler = () => {
         valueMax > valueStart ? setNum(valueStart) : setNum(valueMax)
     }
+
     return (
 
         <div className={s.App}>
+
             <div className={s.headerBody}>
+                <div className={s.counterNumber}>
+                    <div className={num === valueMax ? s.buttonError : s.button}>
 
-                <div className={num === valueMax ? s.buttonError : s.button}>
+                        <Header num={num}/>
 
-                    <Header num={num}/>
-
+                    </div>
                 </div>
                 <div className={s.counterFunction}>
                     <MultiButton name={"Add"} callBack={addClickHandler} callBackDisable={callBackDisableAdd}/>
@@ -83,7 +86,8 @@ function App() {
                 </div>
             </div>
 
-            <div className={s.headerBody}>
+
+            <div className={s.settingsBody}>
                 <div>
                     <SetInputValue name={"max value"} value={valueMax} onChange={onChangeHandlerMax}/>
                 </div>
@@ -93,9 +97,7 @@ function App() {
                 <MultiButton name={"set"} callBack={onClickSetButtonHandler}/>
             </div>
         </div>
-
-    )
-        ;
+    );
 }
 
 export default App;
