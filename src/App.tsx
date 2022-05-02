@@ -2,7 +2,6 @@ import React, {ChangeEvent, useEffect, useState} from 'react';
 import s from "./App.module.css";
 import {Header} from "./Components/Header";
 import {MultiButton} from "./Components/MultiButton";
-import {NavLink, Routes, Route} from "react-router-dom";
 import {SetInputValue} from "./Components/SetInputValye";
 
 
