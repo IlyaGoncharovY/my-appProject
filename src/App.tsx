@@ -5,7 +5,7 @@ import {MultiButton} from "./Components/MultiButton";
 import {SetInputValue} from "./Components/SetInputValye";
 
 
-function App() {
+export function App() {
 
     //const maxValue = 5
     const startValue = 0
@@ -99,4 +99,3 @@ function App() {
     );
 }
 
-export default App;

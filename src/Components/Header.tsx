@@ -1,7 +1,7 @@
 import React from 'react';
 
 type HeaderPropsType = {
-    num:number
+    num: number
 }
 
 export const Header = (props: HeaderPropsType) => {
