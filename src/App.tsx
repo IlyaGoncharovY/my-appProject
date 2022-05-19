@@ -1,20 +1,27 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import s from "./App.module.css";
-import {Header} from "./Components/Header";
-import {MultiButton} from "./Components/MultiButton";
-import {SetInputValue} from "./Components/SetInputValye";
+import {Header} from "./Components/CounterComponent/Header/Header";
+import {MultiButton} from "./Components/CounterComponent/MultiButton/MultiButton";
+import {SetInputValue} from "./Components/CounterComponent/SetInputValue/SetInputValye";
+import {useDispatch, useSelector} from "react-redux";
+import {AppStateType} from "./Components/BLL/store/store";
+import {addCounterNumAC} from "./Components/BLL/Reducer/counterReducer";
 
 
 export function App() {
+
+    const num = useSelector<AppStateType, number>(state => state.counter.num)
+    const dispatch = useDispatch()
+
 
     //const maxValue = 5
     const startValue = 0
 
 
-    let [num, setNum] = useState<number>(startValue)
+/*    let [num, setNum] = useState<number>(startValue)
     let [valueMax, setValueMax] = useState<number>(startValue)
-    let [valueStart, setValueStart] = useState<number>(startValue)
-
+    let [valueStart, setValueStart] = useState<number>(startValue)*/
+/*
 
     useEffect(() => {
 
@@ -37,14 +44,15 @@ export function App() {
         localStorage.setItem("counterNum", JSON.stringify(num))
         localStorage.setItem("counterValue", JSON.stringify(valueStart))
         localStorage.setItem("counterMaxValue", JSON.stringify(valueMax))
-    }, [num, valueStart, valueMax])
+    }, [num, valueStart, valueMax])*/
 
     const addClickHandler = () => {
-        if (valueStart < valueMax) {
+        dispatch(addCounterNumAC())
+       /* if (valueStart < valueMax) {
             setNum(num + 1)
-        }
+        }*/
     }
-
+/*
     const resetClickHandler = () => {
         setNum(startValue)
         setValueMax(startValue)
@@ -64,7 +72,7 @@ export function App() {
 
     const onClickSetButtonHandler = () => {
         valueMax > valueStart ? setNum(valueStart) : setNum(valueMax)
-    }
+    }*/
 
     return (
 
