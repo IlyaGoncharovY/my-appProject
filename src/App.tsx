@@ -18,10 +18,9 @@ export function App() {
     const startValue = 0
 
 
-/*    let [num, setNum] = useState<number>(startValue)
+    let [num, setNum] = useState<number>(startValue)
     let [valueMax, setValueMax] = useState<number>(startValue)
-    let [valueStart, setValueStart] = useState<number>(startValue)*/
-/*
+    let [valueStart, setValueStart] = useState<number>(startValue)
 
     useEffect(() => {
 
@@ -44,15 +43,14 @@ export function App() {
         localStorage.setItem("counterNum", JSON.stringify(num))
         localStorage.setItem("counterValue", JSON.stringify(valueStart))
         localStorage.setItem("counterMaxValue", JSON.stringify(valueMax))
-    }, [num, valueStart, valueMax])*/
+    }, [num, valueStart, valueMax])
 
     const addClickHandler = () => {
         dispatch(addCounterNumAC())
-       /* if (valueStart < valueMax) {
+    /*    if (valueStart < valueMax) {
             setNum(num + 1)
         }*/
     }
-/*
     const resetClickHandler = () => {
         setNum(startValue)
         setValueMax(startValue)
@@ -72,7 +70,7 @@ export function App() {
 
     const onClickSetButtonHandler = () => {
         valueMax > valueStart ? setNum(valueStart) : setNum(valueMax)
-    }*/
+    }
 
     return (
 

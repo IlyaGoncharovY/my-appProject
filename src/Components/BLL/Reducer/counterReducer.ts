@@ -38,7 +38,7 @@ export const addCounterNumAC = () => (
 export const setNumFromLSAC = (num: number) => (
     {
         type: "SET-NUM-FROM-LS",
-        num: num
+        num
     }
 ) as const
 
