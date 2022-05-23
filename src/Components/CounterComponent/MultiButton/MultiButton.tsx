@@ -15,8 +15,13 @@ export const MultiButton = (props: MultiButtonPropsType) => {
     }
     return (
         <div>
-            <Button variant={"contained"} color={"success"} onClick={addClickHandler} disabled={props.callBackDisable}>
-                {props.name}</Button>
+            <Button
+                variant={"contained"}
+                color={"success"}
+                onClick={addClickHandler}
+                disabled={props.callBackDisable}>
+                {props.name}
+            </Button>
         </div>
     );
 };

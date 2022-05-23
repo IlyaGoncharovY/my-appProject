@@ -1,11 +1,17 @@
-import React from 'react';
+
 
 const initialState = {
-    num: 0
+    num: 0,
+    startValue: 0,
+    maxValue: 5
 }
 
 type initialStateType = typeof initialState
-type ActionType = addCounterNumACType | setNumFromLSACType
+type ActionType = addCounterNumACType
+    | setNumFromLSACType
+    | resetCounterNumACType
+    | startValueACType
+    | maxValueACType
 
 
 export const counterReducer = (state: initialStateType = initialState, action: ActionType): initialStateType => {
@@ -15,19 +21,36 @@ export const counterReducer = (state: initialStateType = initialState, action: A
                 ...state,
                 num: state.num + 1
             }
-        case "SET-NUM-FROM-LS":
+        case "RESET-NUM":
             return {
-                ...state, num: action.num
+                ...state,
+                num: state.num = 0
             }
-
-
+        case "SET-NUM":
+            return {
+                ...state,
+                num: state.startValue
+            }
+        case "VALUE-START":
+            return {
+                ...state,
+                startValue: action.startValue
+            }
+        case "MAX-VALUE":
+            return {
+                ...state,
+                maxValue: action.maxValue
+            }
         default:
             return state
     }
 }
 
 export type addCounterNumACType = ReturnType<typeof addCounterNumAC>
+export type resetCounterNumACType = ReturnType<typeof resetCounterNumAC>
 export type setNumFromLSACType = ReturnType<typeof setNumFromLSAC>
+export type startValueACType = ReturnType<typeof startValueAC>
+export type maxValueACType = ReturnType<typeof maxValueAC>
 
 export const addCounterNumAC = () => (
     {
@@ -35,12 +58,34 @@ export const addCounterNumAC = () => (
     }
 ) as const
 
-export const setNumFromLSAC = (num: number) => (
+
+export const resetCounterNumAC = () => (
     {
-        type: "SET-NUM-FROM-LS",
-        num
+        type: "RESET-NUM"
     }
 ) as const
+
+export const setNumFromLSAC = () => (
+    {
+        type: "SET-NUM"
+    }
+) as const
+
+export const startValueAC = (startValue: number) => (
+    {
+        type: "VALUE-START",
+        startValue
+    }
+) as const
+
+export const maxValueAC = (maxValue: number) => (
+    {
+        type: "MAX-VALUE",
+        maxValue
+    }
+) as const
+
+
 
 
 
