@@ -1,9 +1,8 @@
-
-
 const initialState = {
     num: 0,
     startValue: 0,
-    maxValue: 5
+    maxValue: 5,
+    error: false,
 }
 
 type initialStateType = typeof initialState
@@ -12,6 +11,7 @@ type ActionType = addCounterNumACType
     | resetCounterNumACType
     | startValueACType
     | maxValueACType
+    | errorInputACType
 
 
 export const counterReducer = (state: initialStateType = initialState, action: ActionType): initialStateType => {
@@ -41,6 +41,11 @@ export const counterReducer = (state: initialStateType = initialState, action: A
                 ...state,
                 maxValue: action.maxValue
             }
+        case "ERROR-INPUT":
+            return {
+                ...state,
+                error: action.error
+            }
         default:
             return state
     }
@@ -51,6 +56,7 @@ export type resetCounterNumACType = ReturnType<typeof resetCounterNumAC>
 export type setNumFromLSACType = ReturnType<typeof setNumFromLSAC>
 export type startValueACType = ReturnType<typeof startValueAC>
 export type maxValueACType = ReturnType<typeof maxValueAC>
+export type errorInputACType = ReturnType<typeof errorInputAC>
 
 export const addCounterNumAC = () => (
     {
@@ -82,6 +88,13 @@ export const maxValueAC = (maxValue: number) => (
     {
         type: "MAX-VALUE",
         maxValue
+    }
+) as const
+
+export const errorInputAC = (error: boolean) => (
+    {
+        type: "ERROR-INPUT",
+        error
     }
 ) as const
 
