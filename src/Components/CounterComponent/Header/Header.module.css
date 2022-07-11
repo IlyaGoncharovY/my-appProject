@@ -1,0 +1,9 @@
+.errorText {
+    color: red;
+    font-size: 20px;
+    text-align: center;
+    line-height: 100px;
+}
+.headerText {
+    color: green;
+}

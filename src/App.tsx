@@ -58,7 +58,7 @@ export function App() {
             <div className={s.headerBody}>
                 <div className={s.counterNumber}>
                     <div className={num >= maxValue ? s.buttonError : s.button}>
-                        <Header num={num}/>
+                        <Header num={num} text={"incorrect value"}/>
                     </div>
                 </div>
                 <div className={s.counterFunction}>
