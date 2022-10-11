@@ -61,42 +61,42 @@ export type errorInputACType = ReturnType<typeof errorInputAC>
 export const addCounterNumAC = () => (
     {
         type: "ADD-NUM"
-    }
-) as const
+    } as const
+)
 
 
 export const resetCounterNumAC = () => (
     {
         type: "RESET-NUM"
-    }
-) as const
+    } as const
+)
 
 export const setNumFromLSAC = () => (
     {
         type: "SET-NUM"
-    }
-) as const
+    } as const
+)
 
 export const startValueAC = (startValue: number) => (
     {
         type: "VALUE-START",
         startValue
-    }
-) as const
+    } as const
+)
 
 export const maxValueAC = (maxValue: number) => (
     {
         type: "MAX-VALUE",
         maxValue
-    }
-) as const
+    } as const
+)
 
 export const errorInputAC = (error: boolean) => (
     {
         type: "ERROR-INPUT",
         error
-    }
-) as const
+    } as const
+)
 
 
 
